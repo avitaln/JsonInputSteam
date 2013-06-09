@@ -42,7 +42,7 @@ class TokensProducer(value: Any, val objectMapper: ObjectMapper) {
   private def produceValues() {
     objectMapper.writeValue(new OutputStream {
       override def write(b: Array[Byte], off: Int, len: Int) {
-        val dst : Array[Byte] = new Array[Byte](len)
+        val dst = new Array[Byte](len)
         System.arraycopy(b,0,dst,0,len)
         produce(ByteArrayMessage(dst,len))
       }
